@@ -1,0 +1,56 @@
+<?php
+date_default_timezone_set('Asia/Shanghai');
+
+/*echo date('Y-m-d H:m:i', strtotime('now'));
+
+echo "\n";
+
+echo date('Y-m-d H:m:i', time());
+
+echo "\n";
+echo(date('Y-m-d H:m:i',strtotime("15 October 1980")));
+echo "\n";
+
+echo(date('Y-m-d H:m:i', strtotime("+5 hours")));
+
+echo "\n";
+
+echo(date('Y-m-d H:m:i', strtotime("+1 week")));
+
+echo "\n";
+
+echo(strtotime("+1 week 3 days 7 hours 5 seconds"));
+echo "\n";
+echo(strtotime("next Monday"));
+echo "\n";
+echo(strtotime("last Sunday"));
+
+echo "\n";*/
+
+echo  date("Y-m-d", strtotime("-1 month"));
+
+echo "\n";
+
+var_dump(date("Y-m-d", strtotime("2017-06-31")));
+
+
+var_dump(date("Y-m-d", strtotime("-1 month", strtotime("2017-03-31"))));
+//输出2017-03-03
+var_dump(date("Y-m-d", strtotime("+1 month", strtotime("2017-08-31"))));
+//输出2017-10-01
+var_dump(date("Y-m-d", strtotime("next month", strtotime("2017-01-31"))));
+//输出2017-03-03
+var_dump(date("Y-m-d", strtotime("last month", strtotime("2017-03-31"))));
+//输出2017-03-03
+
+
+var_dump(date("Y-m-d", strtotime("last day of -1 month", strtotime("2017-03-31"))));
+//输出2017-02-28
+var_dump(date("Y-m-d", strtotime("last day of +1 month", strtotime("2017-08-31"))));
+////输出2017-09-01
+var_dump(date("Y-m-d", strtotime("first day of next month", strtotime("2017-01-31"))));
+////输出2017-02-01
+var_dump(date("Y-m-d", strtotime("last day of last month", strtotime("2017-03-31"))));
+////输出2017-02-28
+
+?>
