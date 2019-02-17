@@ -1,7 +1,7 @@
 <?php
-class A
+/*class A
 {
-	protected $a = [];
+	protected $a = [1,2,3];
 
 
 	public function shift($value)
@@ -20,5 +20,64 @@ class A
 
 $a = new A();
 $value =  $a->shift(['haha']);
-$value[0]->getArray();
+
+print_r($value[0]->getArray());*/
+// $value[0]->getArray();
+
+
+interface Method 
+{
+	public function run();
+}
+
+class A implements Method
+{
+
+	public function run()
+	{
+		echo "A run";
+	}
+}
+
+class B implements Method
+{
+
+	public function run()
+	{
+		echo "B run";
+	}
+}
+
+
+class C implements Method
+{
+
+	public function run()
+	{
+		echo "C run";
+	}
+}
+
+class Man
+{	
+	private $run;
+
+	public function __construct(Method $run)
+	{
+		$this->run = $run;
+	}
+
+	public function run()
+	{
+		$this->run->run();
+	}
+}
+
+
+$a = new A;
+
+$man = new Man($a);
+
+$man->run();
+
 ?>

@@ -59,8 +59,11 @@
 	            return $this->instances[$abstract];
 	        }
 
+	       	// 把函数是讲参数加入到数组当中,加入到数组的第一个位置 该函数会返回数组中元素的个数。
+
 	        array_unshift($parameters, $this);
 
+	        // 将$parameters的参数传入到匿名函数当中 	
 	        return call_user_func_array($this->binds[$abstract], $parameters);
 	    }
 	}
@@ -70,13 +73,15 @@
 	 $container->bind('CommonBoard', function($container) {
 	 	return new CommonBoard;
 	 });
+
 	 $container->bind('MechanicalKeyboard', function($container) {
 	 	return new MechanicalKeyboard;
 	 });
 
 	 $container->bind('Computer', function($container, $module) {
-	 	 return new Computer($container->make($module));
+		 	 return new Computer($container->make($module));
 	 });
+
 
 	 $computer = $container->make('Computer',['CommonBoard']);
 

@@ -65,7 +65,7 @@ class Container
 		};
 	}
 
-	protected function make(abstract)
+	protected function make($abstract)
 	{
 		// $abstruct 是类名
         $concrete = $this->getConcrete($abstract);
@@ -77,7 +77,6 @@ class Container
         }
 
         return $object;
-
 	}
 
 	 protected function isBuildable($concrete, $abstract)
