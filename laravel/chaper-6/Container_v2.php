@@ -131,7 +131,7 @@ class  Container
 
 			echo "构造函数的依赖\n";
 
-			print_r($dependency);
+			print_r($dependency->name);
 			if (is_null($dependency)) {
 				$dependencies[] = null;
 			} else {
