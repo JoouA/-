@@ -100,7 +100,7 @@ class Container
 		$reflector = new ReflectionClass($concrete);
 
 		if (! $reflector->isInstantiable()) {
-			throw new Exception("$abstract cant be instantiable");
+			throw new Exception("$concrete cant be instantiable");
 		}
 
 		$constructor = $reflector->getConstructor();

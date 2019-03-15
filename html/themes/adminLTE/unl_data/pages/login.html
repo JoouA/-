@@ -1,0 +1,48 @@
+<!--
+* @author JXNETWOEK <www.xlu.co>
+* @copyright 2008-2018 JXNETWOEK
+* @link https://www.xlu.co/
+* @version 20180301
+-->
+
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/" title="Emulated Virtual Environment"><img class="hidden-xs" src="/themes/adminLTE/unl_data/img/Logo_EVE_Color.png" style="width:312px;height:120px"></a>
+  </div>
+  <div class="version">
+    <p style="text-align:center; color:white" data-ng-bind="eveversion"></p>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">登陆后开始你的实验</p>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="默认用户名：admin" ng-model="username" my-enter="tryLogin()" autofocus>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="默认密码：eve" ng-model="password" my-enter="tryLogin()">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+	<select name="html5" class="form-control" ng-init="html5='-1'"  placeholder="html5" ng-model="html5" ng-model="data.singleSelect">
+		<option value=-1 selected>调用本地控制台</option>
+		<option value=1>调用网页控制台</option>
+	</select>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+          <center><button id="btnlogin"  class="btn btn  btn-flat" ng-click="tryLogin()">登陆</button></center>
+        </div>
+		</p></br></br>
+		<p style="text-align:center; color:red" data-ng-bind="loginMessageInfo">
+		</p>
+        <!-- /.col -->
+      </div>
+    <center><a href="https://www.xlu.co/"target="_blank"></i>© 聚星网络汉化所有</a></center>
+  </div>
+  <div class="login-logo">
+    <a href="/" title="Emulated Virtual Environment"><img class="hidden-xs" src="/themes/adminLTE/unl_data/img/company.png" style="height:120px" onerror="this.style.visibility = 'hidden'" ></a>
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->

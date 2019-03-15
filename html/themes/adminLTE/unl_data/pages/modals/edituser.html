@@ -1,0 +1,67 @@
+<!--
+* @author JXNETWOEK <www.xlu.co>
+* @copyright 2008-2018 JXNETWOEK
+* @link https://www.xlu.co/
+* @version 20180301
+-->
+
+<div class="modal-header">
+    <h3 class="modal-title">编辑用户</h3>
+</div>
+<div class="modal-body">
+    <form role="form" name="form">
+        <div class="form-group required {{ (errorClass == 'has-error username') ? errorClass : ''}}">
+            <label class="control-label">用户名</label>
+            <input type="text" class="form-control" data-ng-model="username" placeholder="Enter username" disabled>
+            <span class="help-block" data-ng-show="errorClass == 'has-error username'" data-ng-bind="errorMessage"></span>
+        </div>
+
+        <div class="form-group required {{ (errorClass == 'has-error passwd') ? errorClass : ''}}">
+            <label class="control-label">密码</label>
+            <input type="password" class="form-control" data-ng-model="passwd" placeholder="Enter password">
+            <span class="help-block" data-ng-show="errorClass == 'has-error passwd'" data-ng-bind="errorMessage"></span>
+        </div>
+
+        <div class="form-group required {{ (errorClass == 'has-error passwdConfirm') ? errorClass : ''}}">
+            <label class="control-label">确认密码</label>
+            <input type="password" class="form-control" data-ng-model="passwdConfirm" placeholder="Enter password">
+            <span class="help-block chars--active" ng-show="passwdConfirm != passwd" >密码不匹配</span>
+        </div>
+
+        <div class="form-group">
+            <label>邮件</label>
+            <input type="text" name="email" class="form-control" data-ng-model="email" placeholder="Enter email" ng-pattern="patternEmail"
+                ng-class="{'input--error': form.email.$valid == false, 'input': form.email.$valid == true}">
+                <span class="chars" ng-class="{'chars--active': form.email.$valid == false, 'chars': form.email.$valid == true}">请输入有效的电子邮件</span>
+        </div>
+
+        <div class="form-group">
+            <label>名称</label>
+            <input type="text" class="form-control" name="name" data-ng-model="name" placeholder="Enter name" autofocus ng-pattern="restrictNumber"
+                ng-class="{'input--error': form.name.$valid == false, 'input': form.name.$valid == true}">
+                <span class="chars" ng-class="{'chars--active': form.name.$valid == false, 'chars': form.name.$valid == true}">仅限[A-Za-z0-9_- ]字符</span>
+                <span class="help-block" data-ng-show="errorClass == 'has-error username'" data-ng-bind="errorMessage"></span>
+        </div>
+        <div class="form-group">
+            <label>角色</label>
+            <select data-ng-model="selectRole" data-ng-options="y for (x,y) in roles"></select>
+            <!--<label data-ng-bind="selectRole"></label>
+        <label data-ng-bind="roleArray[selectRole]"></label> -->
+        </div>
+
+        <div class="form-group required">
+            <label class="control-label">POD</label>
+            <input type="text" class="form-control"  data-ng-model="pod" placeholder="Enter pod">
+        </div>
+        <div class="row">
+            <div class="col-md-12 parent-required">
+                <p class="p-required"><sup class="sup-required">*</sup>-为必填字段</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success btn-flat {{blockButtonsClass}}" ng-disabled="!(form.$valid && (passwdConfirm == passwd) && passwdConfirm && username && pod)"
+                type="button" ng-click="editUser()">保存</button>
+            <button class="btn btn-default btn-flat" type="button" ng-click="closeModal()">取消</button>
+        </div>
+    </form>
+</div>
